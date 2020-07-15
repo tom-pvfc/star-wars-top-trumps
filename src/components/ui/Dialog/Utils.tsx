@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { DP } from '../../../constants';
-import { EmbedCode } from '../EmbedCode/EmbedCode';
 import { DialogProps } from './Dialog';
 import { SCREEN_WIDTH, RES_URL } from '../../../config';
 import I18n from '../../../services/I18n';
@@ -65,8 +64,6 @@ export const EmbedComponent: React.SFC<any> = (props) => {
             </div>
             <div className="row">
                 <div className="col s12">
-                    <EmbedCode
-                        height={600} />
                 </div>
             </div>
 

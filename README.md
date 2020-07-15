@@ -1,8 +1,9 @@
-#__Tom Riley Base React Template__
+#__Tom Riley Star Wars Top Trumps v1__
 
 ##Getting started
 
-run npm run dev to build the project
+1. install node modules
+2. run "npm run watch" to build the project
 
 ```
 
@@ -21,11 +22,11 @@ run npm run dev to build the project
 * I have used React, Typescript throughout
 * I have used React Router for the different pages in the App
 * Included use of React hook in the Trump Card component
-* Styled website in generic format and some components
+* Styled website in generic format and some components. I haven't spent much time into design or UX.
 
 ##In Future
 
 * Add GraphQL for the data queries in the game itself
 * Finish the styling and make it more user friendly
-* Add multi player
+* Add multi player and themes 
 * Add animation to the cards and when playing again

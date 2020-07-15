@@ -27,6 +27,7 @@ export function TrumpCard(props: TrumpCardsProps) {
                     }
                 </h1>
                 {
+                    // people deck data
                     props.deckType == "people" ?
                         <div className="trump-card__wrapper--data">
                             <p>
@@ -51,6 +52,7 @@ export function TrumpCard(props: TrumpCardsProps) {
                             </p>
                         </div>
                         :
+                        // starship deck data
                         <div className="trump-card__wrapper--data">
                             <p>
                                 {
@@ -80,16 +82,15 @@ export function TrumpCard(props: TrumpCardsProps) {
                 </div>
                 {
                     toggleStatus && 
-                    <div>
+                    <div className="animated fadeIn delay-2">
                         More info!
                     </div>
                 }
 
-
             </div>
             {
                 props.winningCard.name == props.data.name && 
-                <div className="trump-card__status">
+                <div className="trump-card__status animated fadeIn delay-4">
                     Winner!
                 </div>
             }

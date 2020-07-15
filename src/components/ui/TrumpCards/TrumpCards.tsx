@@ -15,6 +15,8 @@ export function TrumpCards(props: TrumpCardsProps) {
     
     let cls = props.className || "";
 
+    //here we would map through the cards to reduce the code and make it dynamic
+
     return (
         <div className={`trump-cards  ${cls}`}>
             <div className="trump-cards__wrapper">
