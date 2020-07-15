@@ -1,0 +1,55 @@
+.header {
+    position: relative;    
+
+    height: auto;
+    width: 100%;
+    background-color: #38231f;
+    border-radius: 15px;
+    z-index: 99;
+    
+    padding: 10px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+    margin-bottom: 25px;
+    
+    &__wrapper{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        &--title{
+            color: $color-2;
+            margin-bottom: 10px;
+        }
+        &--intro{
+            color: $color-2;
+        }
+    }
+  
+}
+
+@include SmallDevice {
+    .header {
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+}
+
+@include MediumDevice {
+    .header {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        &__wrapper{
+        
+            justify-content: space-between;
+        }
+
+    }
+}

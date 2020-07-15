@@ -1,0 +1,20 @@
+.trump-cards {
+    margin: 20px auto;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        &--card{
+            margin: 30px auto;
+        }
+    }
+}
+
+@include SmallDevice {
+    .trump-cards {
+        margin: 40px auto;
+        &__wrapper {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}

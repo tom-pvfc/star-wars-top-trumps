@@ -1,0 +1,59 @@
+.trump-card {
+    width: 260px;
+    height: 400px;
+    background-color: #38231f;
+    border: 20px solid #9b0603;
+    border-radius: 14px;
+    margin: 10px;
+    color: $color-2;
+    position: relative;
+
+    &__wrapper{
+        padding: 15px 0;
+        height: 100%;
+        &--data{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 70%;
+        }
+    }
+
+    &__winner{
+        border: 20px solid blue;
+    }
+    &__status{
+        background-color: transparent;
+        border-radius: 14px;
+        font-size: 40px;
+        color: $color-2;
+        position: absolute;
+        bottom: -70px;
+        left: 0;
+        right: 0;
+    }
+
+    &__more{
+        cursor: pointer;
+        background-color: lightsalmon;
+        
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+}
+
+@include SmallDevice {
+    .trump-card {
+        width: 360px;
+    }
+}
+
+@include MediumDevice {
+    .trump-card {
+        width: 460px;
+        h1{
+            font-size: 46px;
+        }
+    }
+}
