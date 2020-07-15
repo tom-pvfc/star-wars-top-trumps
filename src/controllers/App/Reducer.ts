@@ -13,6 +13,9 @@ export function Reducer(state = AppInitState, action): any {
 		case TYPES.ADD_RESULTS:
 			state.results.push(action.data);
 			return merge({}, state);
+		case TYPES.ADD_SCORE:
+			state.score = state.score + action.data;
+			return merge({}, state);
 		default:
 			return state;
 	}

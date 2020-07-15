@@ -7,7 +7,7 @@
     border-radius: 15px;
     z-index: 99;
     
-    padding: 10px 15px;
+    padding: 20px 15px;
 
     display: flex;
     justify-content: center;
@@ -46,6 +46,7 @@
         width: 80%;
         margin: 0 auto;
         margin-bottom: 50px;
+        padding: 40px 0;
         &__wrapper{
         
             justify-content: space-between;

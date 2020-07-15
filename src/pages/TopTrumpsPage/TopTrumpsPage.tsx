@@ -15,6 +15,7 @@ import { Header } from '../../components/ui/Header/Header';
 export interface TopTrumpsPageProps extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?: string;
     addResults: (name: string) => iActionType;
+    addScore: (no: number) => iActionType;
 }
 
 const INIT_STATE: TopTrumpsPageState = {
@@ -55,8 +56,8 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
 
         setTimeout(() => {
             this.getData();
-        }, 300)
-
+        }, 500)
+        
         // if (this.state.data) {
         //     this.chooseRandomCards();
         // }
@@ -71,7 +72,7 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
             }
         }
 
-        if (this.state.data !== prevState.data && this.state.data !== null) {
+        if (this.state.data !== prevState.data && prevState.data == null) {
             this.chooseRandomCards();
         }
     }
@@ -88,6 +89,9 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
         //http://swapi.dev/api/people/?search=&page=2
         if (this.state.deckType == "people") {
             let rdmIdx = this.generateRandomIndex(Math.random(), 8);
+            if(rdmIdx == 0){
+                rdmIdx= 1;
+            }
             
             fetch(`http://swapi.dev/api/people/?search=&page=${rdmIdx}`)
                 .then(res => res.json())
@@ -106,6 +110,9 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
         }
         else {
             let rdmIdx = this.generateRandomIndex(Math.random(), 3);
+            if(rdmIdx == 0){
+                rdmIdx= 1;
+            }
             fetch(`http://swapi.dev/api/starships/?search=&page=${rdmIdx}`)
                 .then(res => res.json())
                 .then(
@@ -155,16 +162,20 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
 
         switch (this.state.deckType) {
             case "people":
-                // if(card1.height > card2.height){
                 this.setState({
                     winningCard: card1.height > card2.height ? card1 : card2
                 })
-                // }
+                if(card1.height > card2.height){
+                    this.props.addScore(1);
+                }
                 break;
             case "starships":
                 this.setState({
                     winningCard: card1.hyperdrive_rating > card2.hyperdrive_rating ? card1 : card2
                 })
+                if(card1.hyperdrive_rating > card2.hyperdrive_rating){
+                    this.props.addScore(1);
+                }
                 break;
         }
 
@@ -187,10 +198,6 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
         if (this.state.data) {
             this.chooseRandomCards();
         }
-
-        // setTimeout(() => {
-        //     this.getData();
-        // }, 300)
     }
 
     render() {
@@ -230,7 +237,7 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
 
                     <div className="top-trumps-page__wrapper--buttons">
                         <Button className="top-trumps-page__wrapper--reset" onClick={this.playAgain}>
-                            Play Again
+                            Next Round!
                         </Button>
 
                         <LinkButton className="top-trumps-page__wrapper--results" href="#results">
@@ -250,7 +257,8 @@ const mapStateToProps = (state: IStoreState, ownProps): Partial<TopTrumpsPagePro
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
-    addResults: ACTIONS.ADD_RESULTS
+    addResults: ACTIONS.ADD_RESULTS,
+    addScore: ACTIONS.ADD_SCORE,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopTrumpsPage);

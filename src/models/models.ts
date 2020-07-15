@@ -27,7 +27,7 @@ export interface iPeopleData{
     name: string;
     gender: string;
     height: number;
-    birth_year:number;
+    birth_year:number | string;
     mass: number;
 }
 

@@ -4,6 +4,7 @@ export const TYPES = {
     DATA_LOADED: APP_START | 0x00001,
     SET_DECK_TYPE: "SET_DECK_TYPE",
     ADD_RESULTS: "ADD_RESULTS",
+    ADD_SCORE: "ADD_SCORE",
 };
 
 export const ACTIONS = {
@@ -21,6 +22,12 @@ export const ACTIONS = {
         return{
             type: TYPES.ADD_RESULTS, 
             data: name            
+        }
+    },
+    ADD_SCORE:(score: number) =>{
+        return{
+            type: TYPES.ADD_SCORE, 
+            data: score            
         }
     }
 };

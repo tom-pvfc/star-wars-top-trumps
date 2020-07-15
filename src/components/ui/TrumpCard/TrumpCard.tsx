@@ -19,7 +19,7 @@ export function TrumpCard(props: TrumpCardsProps) {
 
 
     return (
-        <div className={`trump-card  ${cls} ${props.winningCard.name == props.data.name ? "trump-card__winner" : ""}`  }>
+        <div className={`trump-card  ${cls} ${props.winningCard && props.winningCard.name == props.data.name ? "trump-card__winner" : ""}`  }>
             <div className="trump-card__wrapper">
                 <h1>
                     {
@@ -40,14 +40,17 @@ export function TrumpCard(props: TrumpCardsProps) {
                                    "Gender: " + props.data.gender
                                 }
                             </p>
-                            <p>
-                                {
-                                   "Birth Year: " + props.data.birth_year
+                                { 
+                                    props.data.birth_year !== "unknown" &&
+                                    <p>
+                                        {
+                                            "Birth Year: " + props.data.birth_year
+                                        }
+                                    </p>
                                 }
-                            </p>
                             <p>
                                 {
-                                   "Weight: " + props.data.mass
+                                   "Weight: " + props.data.mass + "kg"
                                 }
                             </p>
                         </div>
@@ -89,7 +92,7 @@ export function TrumpCard(props: TrumpCardsProps) {
 
             </div>
             {
-                props.winningCard.name == props.data.name && 
+                props.winningCard && props.winningCard.name == props.data.name && 
                 <div className="trump-card__status animated fadeIn delay-4">
                     Winner!
                 </div>

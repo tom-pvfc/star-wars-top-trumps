@@ -11,6 +11,7 @@ import { LinkButton } from '../../components/ui/Button/Button';
 export interface ResultsPageProps extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?: string;
     results?: string[];
+    score?:number;
 }
 
 const INIT_STATE: ResultsPageState = {
@@ -55,7 +56,7 @@ export class ResultsPage extends React.Component<ResultsPageProps, ResultsPageSt
             return location.href = '';
         }
 
-        // console.log("final results ", props.results)
+        // console.log("final results ", props.score)
 
         //find most common
         let commonName = this.mode(props.results)
@@ -69,7 +70,7 @@ export class ResultsPage extends React.Component<ResultsPageProps, ResultsPageSt
                     />
                     <div className="results-page__wrapper--number">
                         <p>
-                            Number of winners - {props.results.length}
+                            Your Score - {props.score}
                         </p>
                     </div>
                     <div className="results-page__wrapper--biggest">
@@ -102,7 +103,8 @@ export class ResultsPage extends React.Component<ResultsPageProps, ResultsPageSt
 
 const mapStateToProps = (state: IStoreState, ownProps): Partial<ResultsPageProps> => {
     return {
-        results: state.app.results
+        results: state.app.results,
+        score: state.app.score
     }
 }
 

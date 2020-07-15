@@ -16,7 +16,6 @@ class App extends React.Component<AppProps, inAppState>{
         this.state = inAppInitialState;
     }
 
-   
     render() {
         return (
             <div className={`app`}>

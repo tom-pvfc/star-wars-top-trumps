@@ -14,11 +14,13 @@ export interface AppState {
 	data: Dictionary<any>;
 	deckChosen: string;
 	results: string[];
+	score:number;
 }
 export const AppInitState: AppState = {
 	data: null,
 	deckChosen: "",
-	results: []
+	results: [],
+	score: 0
 }
 
 export interface inAppState {
