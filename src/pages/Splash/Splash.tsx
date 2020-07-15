@@ -46,7 +46,7 @@ export class Splash extends React.Component<SplashProps, SplashState>{
                     title={"Welcome to Star Wars Top Trumps!"}
                     intro={"Choose if you want to play with the Character deck or Starship deck"}
                 />
-                
+
                 {
                     //if a deck has been chosen then show button
                     props.deckChosen !== "" &&
@@ -63,7 +63,6 @@ export class Splash extends React.Component<SplashProps, SplashState>{
                 <SplashData
                     setDeck={this.setDeck}
                 />
-
 
             </div>
         )

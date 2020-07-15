@@ -55,7 +55,7 @@ export class ResultsPage extends React.Component<ResultsPageProps, ResultsPageSt
             return location.href = '';
         }
 
-        console.log("final results ", props.results)
+        // console.log("final results ", props.results)
 
         //find most common
         let commonName = this.mode(props.results)

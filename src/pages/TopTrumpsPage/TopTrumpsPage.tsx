@@ -46,7 +46,6 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
         // console.log("loaded ", this.props.deckChosen)
 
         if (this.props.match.params.key == "people" || this.props.match.params.key == "starships") {
-            // console.log("etest"  , this.props.match.params.key)
             this.setState({
                 deckType: this.props.match.params.key
             })
@@ -86,17 +85,15 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
     }
 
     getData = () => {
-        // console.log("mee " , this.state.deckType)
         //http://swapi.dev/api/people/?search=&page=2
         if (this.state.deckType == "people") {
             let rdmIdx = this.generateRandomIndex(Math.random(), 8);
-            console.log("rdmIdx  ", rdmIdx)
+            
             fetch(`http://swapi.dev/api/people/?search=&page=${rdmIdx}`)
                 .then(res => res.json())
                 .then(
                     (result) => {
                         //get data
-                        // console.log("people restult ", result)
                         this.setState({
                             data: result
                         })
@@ -114,7 +111,6 @@ export class TopTrumpsPage extends React.Component<TopTrumpsPageProps, TopTrumps
                 .then(
                     (result) => {
                         //get data
-                        // console.log("starships restult ", result)
                         this.setState({
                             data: result
                         })
